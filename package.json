@@ -19,6 +19,7 @@
     "react-ace": "^10.1.0",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
+    "sonner": "^1.0.3",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.4.4"

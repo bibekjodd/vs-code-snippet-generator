@@ -3,7 +3,7 @@ import { AiOutlineGithub } from 'react-icons/ai';
 
 export default function Footer() {
   return (
-    <div className="flex h-10 items-center justify-center">
+    <div className="flex h-16 items-center justify-center lg:h-12">
       <p className="flex items-center">
         <span className="mr-2 font-semibold text-neutral-200">Made by </span>
         <a
