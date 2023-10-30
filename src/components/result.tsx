@@ -20,10 +20,10 @@ export default function Result() {
   return (
     <div className="flex flex-col lg:pl-5">
       <div className="flex h-16 items-center justify-between">
-        <p className="text-xl font-bold text-white">Generated Snippet</p>
+        <p className="text-xl font-bold text-sky-600">Generated Snippet</p>
         <Button
           onClick={copyToClipboard}
-          className="dark flex h-10 items-center space-x-2 font-semibold"
+          className="dark flex h-10 items-center space-x-2 bg-neutral-300 font-semibold"
         >
           <span>Copy</span>
           <MdContentCopy className="h-5 w-5" />
@@ -33,7 +33,7 @@ export default function Result() {
         value={result}
         readOnly
         placeholder="Generated snippet will be shown here..."
-        className="min-h-[200px] flex-1 resize-none rounded-sm  p-4 font-mono outline-none"
+        className="min-h-[200px] flex-1 resize-none rounded-sm bg-neutral-600 p-4 font-mono text-white outline-none placeholder:text-neutral-300"
       >
         {result}
       </textarea>

@@ -34,7 +34,7 @@ export default function Editor() {
           <input
             type="text"
             placeholder="Trigger Name..."
-            className="h-10 flex-shrink flex-grow rounded-sm bg-white px-2 font-mono outline-none lg:px-3"
+            className="h-10 flex-shrink flex-grow rounded-sm bg-neutral-300 px-2 font-mono outline-none placeholder:text-neutral-600 lg:px-3"
             value={tabTriggerName}
             onChange={(e) => inputsChanged({ tabTriggerName: e.target.value })}
           />
@@ -43,11 +43,11 @@ export default function Editor() {
             placeholder="Description..."
             value={description}
             onChange={(e) => inputsChanged({ description: e.target.value })}
-            className="h-10 flex-shrink flex-grow rounded-sm bg-white px-2 font-mono outline-none lg:px-3 "
+            className="h-10 flex-shrink flex-grow rounded-sm bg-neutral-300 px-2 font-mono outline-none placeholder:text-neutral-600 lg:px-3 "
           />
           <Button
             onClick={pasteFromClipboard}
-            className="dark inline-flex h-10 flex-shrink-0 space-x-2"
+            className="dark inline-flex h-10 flex-shrink-0 space-x-2 bg-neutral-300"
           >
             <span className="font-semibold">Paste</span>
             <TbClipboardText className="h-5 w-5" />
@@ -57,9 +57,14 @@ export default function Editor() {
 
       <textarea
         value={input}
+        autoCorrect="off"
+        autoCapitalize="off"
+        autoComplete="off"
+        aria-autocomplete="none"
+        autoFocus
         onChange={(e) => inputsChanged({ input: e.target.value })}
         placeholder="Paste snippet here..."
-        className="min-h-[200px] flex-1 resize-none rounded-sm p-4 font-mono outline-none "
+        className="min-h-[200px] flex-1 resize-none rounded-sm bg-neutral-600 p-4 font-mono text-white outline-none placeholder:text-neutral-300"
       ></textarea>
     </div>
   );

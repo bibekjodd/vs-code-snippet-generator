@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-sky-600`}>
+      <body className={`${inter.className} bg-neutral-800`}>
         <Toaster duration={5000} closeButton richColors theme="dark" />
         {children}
       </body>
