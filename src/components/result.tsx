@@ -34,9 +34,7 @@ export default function Result() {
         readOnly
         placeholder="Generated snippet will be shown here..."
         className="min-h-[200px] flex-1 resize-none rounded-sm bg-neutral-600 p-4 font-mono text-white outline-none placeholder:text-neutral-300"
-      >
-        {result}
-      </textarea>
+      ></textarea>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import Editor from '@/components/editor';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import Result from '@/components/result';
-import 'ace-builds/src-noconflict/ext-language_tools';
 
 export default function page() {
   return (
