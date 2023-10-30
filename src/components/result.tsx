@@ -3,6 +3,7 @@ import { useSnippetGenerator } from '@/hooks/useSnippetGenerator';
 import React from 'react';
 import { MdContentCopy } from 'react-icons/md';
 import { Button } from './ui/button';
+import { toast } from 'sonner';
 
 export default function Result() {
   const result = useSnippetGenerator((state) => state.result);
@@ -10,7 +11,10 @@ export default function Result() {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(result);
-    } catch (error) {}
+      toast.success('Copied to clipboard');
+    } catch (error) {
+      toast.error('Clipboard permission denied');
+    }
   };
 
   return (

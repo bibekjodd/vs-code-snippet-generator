@@ -3,6 +3,7 @@ import { useSnippetGenerator } from '@/hooks/useSnippetGenerator';
 import React, { useEffect } from 'react';
 import { Button } from './ui/button';
 import { TbClipboardText } from 'react-icons/tb';
+import { toast } from 'sonner';
 
 export default function Editor() {
   const input = useSnippetGenerator((state) => state.input);
@@ -14,7 +15,9 @@ export default function Editor() {
     try {
       const text = await navigator.clipboard.readText();
       inputsChanged({ input: text });
-    } catch (error) {}
+    } catch (error) {
+      toast.error('Clipboard permission denied');
+    }
   };
 
   useEffect(() => {
