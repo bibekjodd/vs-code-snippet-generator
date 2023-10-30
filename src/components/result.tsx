@@ -5,7 +5,7 @@ import { MdContentCopy } from 'react-icons/md';
 import { Button } from './ui/button';
 
 export default function Result() {
-  const output = useSnippetGenerator((state) => state.output);
+  const result = useSnippetGenerator((state) => state.result);
   return (
     <div className="flex flex-col lg:pl-5">
       <div className="flex h-16 items-center justify-between">
@@ -16,7 +16,7 @@ export default function Result() {
         </Button>
       </div>
       <textarea
-        value={output}
+        value={result}
         readOnly
         placeholder="Generated snippet will be shown here..."
         className="min-h-[200px] flex-1 resize-none rounded-sm p-4 font-mono outline-none"

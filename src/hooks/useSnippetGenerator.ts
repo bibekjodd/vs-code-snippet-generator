@@ -1,26 +1,24 @@
+import { SnippetGenerator } from '@/lib/snippet-generator';
 import { create } from 'zustand';
 
-type ChangedInputsArg = {
-  input?: string;
-  description?: string;
-  tabTriggerName?: string;
-};
-
-interface UseSnippetGenerator {
+export type BaseInputs = {
   input: string;
   description: string;
   tabTriggerName: string;
-  output: string;
+};
 
-  inputsChanged: (inputs: ChangedInputsArg) => void;
+type UseSnippetGenerator = BaseInputs & {
+  result: string;
+
+  inputsChanged: (inputs: Partial<BaseInputs>) => void;
   generate: () => void;
-}
+};
 
 export const useSnippetGenerator = create<UseSnippetGenerator>((set, get) => ({
   input: '',
   description: '',
   tabTriggerName: '',
-  output: '',
+  result: '',
 
   inputsChanged(inputs) {
     set(inputs);
@@ -29,8 +27,12 @@ export const useSnippetGenerator = create<UseSnippetGenerator>((set, get) => ({
 
   generate() {
     const { input, description, tabTriggerName } = get();
-    const output = '';
-    set({ output });
+    const { result } = new SnippetGenerator({
+      input,
+      description,
+      tabTriggerName
+    });
+    set({ result });
   }
 
   // end

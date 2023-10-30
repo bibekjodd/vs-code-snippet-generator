@@ -15,7 +15,7 @@ export default function Editor() {
         <div className="flex w-full flex-col space-y-3 py-3 sm:flex-row sm:space-x-3 sm:space-y-0">
           <input
             type="text"
-            placeholder="Tag Trigger..."
+            placeholder="Trigger Name..."
             className="h-10 flex-shrink flex-grow rounded-sm bg-white px-2 font-mono outline-none lg:px-3"
             value={tabTriggerName}
             onChange={(e) => inputsChanged({ tabTriggerName: e.target.value })}
