@@ -23,6 +23,10 @@ export const useSnippetGenerator = create<UseSnippetGenerator>((set, get) => ({
   inputsChanged(inputs) {
     set(inputs);
     get().generate();
+
+    if (inputs.input) {
+      localStorage.setItem('previous-input', inputs.input);
+    }
   },
 
   generate() {

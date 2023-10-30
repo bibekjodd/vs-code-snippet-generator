@@ -1,6 +1,6 @@
 'use client';
 import { useSnippetGenerator } from '@/hooks/useSnippetGenerator';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from './ui/button';
 import { TbClipboardText } from 'react-icons/tb';
 
@@ -9,6 +9,21 @@ export default function Editor() {
   const tabTriggerName = useSnippetGenerator((state) => state.tabTriggerName);
   const description = useSnippetGenerator((state) => state.description);
   const inputsChanged = useSnippetGenerator((state) => state.inputsChanged);
+
+  const pasteFromClipboard = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      inputsChanged({ input: text });
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    const previousInput = localStorage.getItem('previous-input');
+    if (previousInput) {
+      inputsChanged({ input: previousInput });
+    }
+  }, []);
+
   return (
     <div className="flex flex-col lg:pr-5">
       <section className="flex w-full items-center sm:h-16">
@@ -27,7 +42,10 @@ export default function Editor() {
             onChange={(e) => inputsChanged({ description: e.target.value })}
             className="h-10 flex-shrink flex-grow rounded-sm bg-white px-2 font-mono outline-none lg:px-3 "
           />
-          <Button className="dark inline-flex h-10 flex-shrink-0 space-x-2">
+          <Button
+            onClick={pasteFromClipboard}
+            className="dark inline-flex h-10 flex-shrink-0 space-x-2"
+          >
             <span className="font-semibold">Paste</span>
             <TbClipboardText className="h-5 w-5" />
           </Button>
